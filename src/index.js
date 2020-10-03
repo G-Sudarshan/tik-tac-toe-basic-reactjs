@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import Button from "react-bootstrap/Button";
 
 function Square(props) {
   return (
@@ -91,9 +92,17 @@ class Game extends React.Component {
     const moves = history.map((step, move) => {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
+        <div>
+          <br />
+          <li key={move}>
+            <Button
+              variant="outline-success btn-sm"
+              onClick={() => this.jumpTo(move)}
+            >
+              {desc}
+            </Button>
+          </li>
+        </div>
       );
     });
     let status;
